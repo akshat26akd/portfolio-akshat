@@ -73,21 +73,21 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right: profile image, hidden on mobile to save space */}
-        <div className="order-1 hidden justify-center sm:flex lg:order-2">
+        {/* Right: profile image, smaller on mobile */}
+        <div className="order-1 flex justify-center lg:order-2">
           <div className="relative">
             <div
               aria-hidden
               className="animate-float-slow absolute -inset-6 rounded-full bg-gradient-to-tr from-purple-500/30 to-blue-400/30 blur-3xl"
             />
-            <div className="relative aspect-square w-64 overflow-hidden rounded-full border border-white/10 bg-white/5 p-2 shadow-2xl sm:w-80 lg:w-[26rem]">
+            <div className="relative aspect-square w-36 overflow-hidden rounded-full border border-white/10 bg-white/5 p-2 shadow-2xl sm:w-64 lg:w-[26rem]">
               <div className="relative h-full w-full overflow-hidden rounded-full">
                 <Image
-                  src="/hero.png"
+                  src="/hero.jpg"
                   alt="Portrait of Akshat"
                   fill
                   priority
-                  sizes="(max-width: 1024px) 20rem, 26rem"
+                  sizes="(max-width: 640px) 9rem, (max-width: 1024px) 16rem, 26rem"
                   className="scale-125 object-cover object-[center_0%]"
                 />
               </div>
