@@ -10,14 +10,14 @@ export default function Hero() {
       id="home"
       className="relative flex min-h-screen items-center overflow-hidden"
     >
-      {/* background glow */}
+      {/* background glow: smaller/static on mobile, full effect from sm+ to keep low-end phones smooth */}
       <div
         aria-hidden
-        className="animate-float-slow pointer-events-none absolute -top-32 left-1/2 h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-purple-600/20 blur-[120px]"
+        className="pointer-events-none absolute -top-32 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-purple-600/20 blur-2xl sm:h-[36rem] sm:w-[36rem] sm:animate-float-slow sm:blur-[120px]"
       />
       <div
         aria-hidden
-        className="animate-float-slow pointer-events-none absolute bottom-0 right-0 h-96 w-96 rounded-full bg-blue-500/10 blur-[120px]"
+        className="pointer-events-none absolute bottom-0 right-0 hidden h-96 w-96 rounded-full bg-blue-500/10 blur-[120px] sm:block sm:animate-float-slow"
         style={{ animationDelay: "-4s" }}
       />
 
@@ -78,7 +78,7 @@ export default function Hero() {
           <div className="relative">
             <div
               aria-hidden
-              className="animate-float-slow absolute -inset-6 rounded-full bg-gradient-to-tr from-purple-500/30 to-blue-400/30 blur-3xl"
+              className="absolute -inset-6 rounded-full bg-gradient-to-tr from-purple-500/30 to-blue-400/30 blur-xl sm:animate-float-slow sm:blur-3xl"
             />
             <div className="relative aspect-square w-36 overflow-hidden rounded-full border border-white/10 bg-white/5 p-2 shadow-2xl sm:w-64 lg:w-[26rem]">
               <div className="relative h-full w-full overflow-hidden rounded-full">

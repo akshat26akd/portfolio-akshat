@@ -22,22 +22,24 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Fixed dotted grid backdrop for the whole page */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background-image: radial-gradient(
-      rgba(255, 255, 255, 0.045) 1px,
-      transparent 1px
-    );
-    background-size: 26px 26px;
-    mask-image: radial-gradient(
-      ellipse 80% 60% at 50% 0%,
-      #000 40%,
-      transparent 100%
-    );
+  /* Fixed dotted grid backdrop for the whole page (desktop only; mask-image + fixed painting is expensive on low-end mobile GPUs) */
+  @media (min-width: 640px) {
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image: radial-gradient(
+        rgba(255, 255, 255, 0.045) 1px,
+        transparent 1px
+      );
+      background-size: 26px 26px;
+      mask-image: radial-gradient(
+        ellipse 80% 60% at 50% 0%,
+        #000 40%,
+        transparent 100%
+      );
+    }
   }
 
   ::selection {
