@@ -42,6 +42,7 @@ export default function Navbar() {
   }, [open]);
 
   return (
+    <>
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
         scrolled
@@ -77,24 +78,26 @@ export default function Navbar() {
           {open ? <FiX size={26} /> : <FiMenu size={26} />}
         </button>
       </nav>
-
-      {/* Mobile menu */}
-      <div
-        className={`fixed inset-0 z-40 flex flex-col items-center justify-center gap-6 bg-gradient-to-b from-black to-[#12121a] transition-opacity duration-300 md:hidden ${
-          open ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
-      >
-        {navLinks.map((link) => (
-          <a
-            key={link.id}
-            href={`#${link.id}`}
-            onClick={() => setOpen(false)}
-            className="text-2xl font-semibold text-white/80 hover:gradient-text"
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
     </header>
+
+    {/* Mobile menu: kept outside <header> so the header's backdrop-blur (applied once scrolled)
+        doesn't create a containing block that breaks this panel's fixed positioning */}
+    <div
+      className={`fixed inset-0 z-40 flex flex-col items-center justify-center gap-6 bg-gradient-to-b from-black to-[#12121a] transition-opacity duration-300 md:hidden ${
+        open ? "opacity-100" : "pointer-events-none opacity-0"
+      }`}
+    >
+      {navLinks.map((link) => (
+        <a
+          key={link.id}
+          href={`#${link.id}`}
+          onClick={() => setOpen(false)}
+          className="text-2xl font-semibold text-white/80 hover:gradient-text"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+    </>
   );
 }

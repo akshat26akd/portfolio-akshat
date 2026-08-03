@@ -13,7 +13,7 @@ const siteUrl = "https://portfolio-akshat.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: `${profile.name} — ${profile.role}`,
+  title: `${profile.name} - Portfolio`,
   description: profile.summary,
   keywords: [
     "Akshat",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: profile.name }],
   openGraph: {
-    title: `${profile.name} — ${profile.role}`,
+    title: `${profile.name} - Portfolio`,
     description: profile.summary,
     url: siteUrl,
     siteName: `${profile.name} Portfolio`,
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} — ${profile.role}`,
+    title: `${profile.name} - Portfolio`,
     description: profile.summary,
   },
   robots: { index: true, follow: true },
