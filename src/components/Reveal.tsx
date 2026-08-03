@@ -10,11 +10,16 @@ type RevealProps = {
 
 export default function Reveal({ children, delay = 0, className = "" }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  // Default visible so content isn't stuck invisible if JS/hydration is slow (e.g. mobile).
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
+
+    const rect = node.getBoundingClientRect();
+    const alreadyInView = rect.top < window.innerHeight * 0.9;
+    if (!alreadyInView) setVisible(false);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
